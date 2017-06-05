@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <base href="/" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tec PMO</title>
+    <link rel="stylesheet" href="content/bootstrap.min.css" />
+    <link href="content/app.css" rel="stylesheet" />
+    <link href="content/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="content/fullcalendar.min.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+   
+    
+    <header>
+        <div ng-include src="'view/templates/header.html'"></div>
+    </header>
+        <div class="container body-content">
+            <div ng-view class="center-container">
+            </div>
+            </div>
+
+    <div class="navbar-default navbar-fixed-bottom">
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="text-center">Copyright &copy; Cognizant <script>document.write(new Date().getFullYear())</script></p>
+                </div>
+            </div>
+        </footer>
+    </div>
+        
+     <script src="script/common.js"></script>
+    <script src="script/jquery-1.10.2.min.js"></script>
+    <!--<script src="script/bootstrap.min.js"></script>-->
+    <script src="script/angular.min.js"></script>
+    <script src="script/ui-bootstrap-tpls-2.5.0.js"></script>
+    <script src="script/moment.min.js"></script>
+    <script src="script/fullcalendar.min.js"></script>
+    <script src="script/calendar.js"></script>
+        
+    <script src="script//angular-route.min.js"></script>
+    <script src="script/angular-cookies.min.js"></script>
+    <script src="script/angular-animate.min.js"></script>
+    <script src="script/angular-sanitize.min.js"></script>
+    
+    <script src="script/smart-table.min.js"></script>
+
+
+    <script src="app.js"></script>
+    <!--<script src="services/authentication.service.js"></script>-->
+   <!-- <script src="services/flash.service.js"></script>-->
+    <script src="services/user.service.js"></script>
+
+    <script src="services/projectService.js"></script>
+    <script src="services/processService.js"></script>
+    <script src="CustomDirective/CustomDirective.js"></script>
+    <script src="controller/home.controller.js"></script>
+    <script src="controller/projectController.js"></script>
+    <script src="controller/processController.js"></script>
+    <script src="controller/adcalendarcontroller.js"></script>
+    <script src="controller/avmcalendarcontroller.js"></script>
+    <script src="controller/calendarmodalcontroller.js"></script>
+    <script src="controller/projectdetailscontroller.js"></script>
+    
+
+</body>
+</html>

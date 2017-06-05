@@ -1,0 +1,57 @@
+﻿<div class="row">
+    <ul class="breadcrumb">
+        <li><a href="#">Home</a> <span class="divider"></span></li>
+        <li class="active">Process Template</li>
+    </ul>
+</div>
+
+<div class="row">
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <i class="fa fa-modx fa-fw"></i>Process Template
+        </div>
+        <div class="pull-left add-new">
+            <input type="button" class="btn btn-primary addnew pull-right" value="Add New" />
+        </div>
+        <div class="panel-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr style="background-color: #ddd">
+                        <th width="2%"></th>
+                        <th width="2%"></th>
+                        <th width="38%">Process Name</th>
+                        <th width="46%">Process Description</th>
+                        <th width="12%">Download Link</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="processInfo in vm.processTemplate">
+                         <td>
+                            <button type="button" ng-click="removeItem(row)" class="btn btn-warning">
+                                <i class="glyphicon glyphicon-edit"></i>
+                            </button>
+                        </td>
+                        <td>
+                            <button type="button" ng-click="removeItem(row)" class="btn btn-danger">
+                                <i class="glyphicon glyphicon-trash"></i>
+                            </button>
+                        </td>
+                        <td>{{processInfo.Name}}</td>
+                        <td>{{processInfo.ProcessDescription}}</td>
+                        <td>
+                            <button ng-click="vm.DownloadTemplate(processInfo.Url)" class="btn btn-info">
+                                <span class="glyphicon glyphicon-download"></span>  Download</button></td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+<div>
+    <img class="spinner" src="images/spinner.gif" ng-show="vm.loading" />
+</div>

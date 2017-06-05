@@ -1,0 +1,48 @@
+﻿<div class="row">
+<ul class="breadcrumb">
+    <li><a href="#">Home</a> <span class="divider"></span></li>
+    <li class="active">AD Delivery Milestone</li>
+</ul>
+    </div>
+
+    <div class="row">
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <i class="fa fa-modx fa-fw"></i>AD Delivery Milestone
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr style="background-color:#ddd">
+                            <th width="6%">Project ID</th>
+                            <th width="20%">Project Name</th>
+                            <th width="15%">Project Manager</th>
+                            <th width="4%">Status (RAG)</th>
+                            <th width="25%">Reason For Amber/Red</th>
+                            <th width="20%">Path to Green</th>
+                            <th width="10%">Date to Green</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="projectInfo in vm.adproject">
+                            <td>{{projectInfo.ProjectID}}</td>
+                            <td>{{projectInfo.ProjectName}}</td>
+                            <td>{{projectInfo.ProjectManager}}</td>
+                            <td><div class="circle-{{projectInfo.Status}}"></div></td>
+                            <td>{{projectInfo.ReasonForAR}}</td>
+                            <td>{{projectInfo.PathToMoveGreen}}</td>
+                            <td>{{projectInfo.PathToGreenDate | date:'dd-MM-yyyy' }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <div>
+        <img class="spinner" src="images/spinner.gif" ng-show="vm.loading" />
+    </div>
+   

@@ -1,0 +1,90 @@
+﻿<div class="row">
+<ul class="breadcrumb">
+    <li><a href="#">Home</a> <span class="divider"></span></li>
+    <li class="active">Project</li>
+</ul>
+    </div>
+
+
+
+        <div class="row">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <i class="fa fa-cloud-upload fa-fw"></i> Upload Section
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="project-upload">
+                        <div class="col-lg-2 col-md-6">
+                            <label for="file">File Upload</label>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="form-group">
+                                <input type="file" class="form-control" name="file" id="vm.uploadFile" required accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" onchange="angular.element(this).scope().vm.getFileDetails(this)" placeholder="File Upload">
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <input type="button" value="Submit" ng-click="vm.SubmitValue()" />
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="form-group">
+                                <input type="button" value="Download Template" ng-click="vm.DownloadTemplate()" />
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <!-- /.panel-body -->
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <i class="fa fa-modx fa-fw"></i>Project Details
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <table st-table="projectData" st-safe-src="vm.project" class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Project ID</th>
+                                <th>Project Name</th>
+                                <th>Project Description</th>
+                                <th>Project Rag Status</th>
+                                <th>Status Reason</th>
+                                <th>Project Current Milestone</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="projectInfo in projectData">
+                                <td>{{projectInfo.ProjectID}}</td>
+                                <td>{{projectInfo.ProjectName}}</td>
+                                <td>{{projectInfo.ProjectDescription}}</td>
+                                <td><div class="circle-{{projectInfo.ProjectRagStatus}}"></div></td>
+                                <td>{{projectInfo.StatusReason}}</td>
+                                <td>{{projectInfo.ProjectCurrentMilestone}}</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="9" class="text-center">
+                                    <div st-pagination="" st-items-by-page="5"></div>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    </div>
+                </div>
+                    
+                </div>
+
+        <div>
+            <img class="spinner" src="images/spinner.gif" ng-show="vm.loading" />
+        </div>
+
+<script src="script/xlsx.core.min.js"></script>
+
+
+

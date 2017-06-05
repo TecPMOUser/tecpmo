@@ -1,0 +1,41 @@
+﻿<div class="modal-demo">
+    <div class="modal-header">
+        <h3 class="modal-title" id="modal-title"><strong>{{vm.projectInfo.ProjectName}} - <span class="rag-font-{{vm.projectInfo.Status}}">{{vm.projectInfo.Status}}</span></strong></h3>
+    </div>
+    <div class="modal-body" id="modal-body">
+        <div class="caledarModal-Body border">
+            <div class="row">
+                <div class="col-md-3"><strong>Project Id</strong></div>
+                <div class="col-md-9">{{vm.projectInfo.ProjectID}}</div>
+            </div>
+             <div class="row">
+                <div class="col-md-3"><strong>Project Name</strong></div>
+                <div class="col-md-9">{{vm.projectInfo.ProjectName}}</div>
+            </div>
+             <div class="row ">
+                <div class="col-md-3"><strong>Project Manager</strong></div>
+                <div class="col-md-9">{{vm.projectInfo.ProjectManager}}</div>
+            </div>
+            <div class="row">
+                <div class="col-md-3"><strong>RAG Status</strong></div>
+                <div class="col-md-9"><span class="rag-font-{{vm.projectInfo.Status}} text-muted circle-{{vm.projectInfo.Status}}">{{vm.projectInfo.Status}}</span></div>
+            </div>
+             <div class="row">
+                <div class="col-md-3"><strong>Reason for Amber/Red</strong></div>
+                <div class="col-md-9">{{vm.projectInfo.ReasonForAR}}</div>
+            </div>
+             <div class="row">
+                <div class="col-md-3"><strong>Path to Green</strong></div>
+                <div class="col-md-9">{{vm.projectInfo.PathToMoveGreen}}</div>
+            </div>
+             <div class="row">
+                <div class="col-md-3"><strong>Date to Green</strong></div>
+                <div class="col-md-9">{{vm.projectInfo.PathToGreenDate | date:'dd-MM-yyyy' }}</div>
+            </div>
+             
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="vm.ok()">OK</button>
+    </div>
+</div>

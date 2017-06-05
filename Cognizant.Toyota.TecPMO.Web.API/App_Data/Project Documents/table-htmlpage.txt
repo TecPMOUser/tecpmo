@@ -1,0 +1,70 @@
+ <tr><td>Project ID</td>
+            <td> <input type="text" class="form-control" ng-model="projectInfo.ProjectID" /></td></tr>
+        <tr>
+            <tr><td>Project Name</td>
+            <td> <input type="text" class="form-control" ng-model="projectInfo.ESAProjectName" /></td></tr>
+        <tr>
+            <tr><td>Project Short Name</td>
+            <td> <input type="text" class="form-control" ng-model="projectInfo.ProjectShortName" /></td></tr>
+        <tr>
+            <tr><td>Project Description</td>
+            <td> <input type="text" class="form-control" ng-model="projectInfo.ProjectDescription" /></td></tr>
+        <tr>
+            <tr><td>Project Manager ID</td>
+            <td> <input type="text" class="form-control" ng-model="projectInfo.ProjectManagerID" /></td></tr>
+        <tr>
+            <tr><td>Project Manager Name</td>
+            <td> <input type="text" class="form-control" ng-model="projectInfo.ProjectManagerName" /></td></tr>
+        <tr>
+            <tr><td>Project DM Name</td>
+            <td> <input type="text" class="form-control" ng-model="projectInfo.ProjectDMName" /></td></tr>
+        <tr>  
+
+<table class="table table-striped table-bordered">
+
+                
+
+        <tr> <td class="text-right" colspan="2">
+                <button ng-click="addItem(projectInfo); addMode=false" class="btn btn-primary">
+                    Add
+                </button></td></tr>
+    </table>
+
+
+<div ng-show="addMode" class="container card card-block">
+            
+             <div class="md-form col-2">   
+                 <label>Project ID</label>     
+                 <input type="text" class="form-control" ng-model="projectInfo.ProjectID" />      
+            </div>
+            <div class="md-form">   
+                 <label>ESA Project Name</label>     
+                 <input type="text" class="form-control" ng-model="projectInfo.ESAProjectName" />      
+            </div>
+            <div class="md-form">   
+                 <label>Project ShortName</label>     
+                 <input type="text" class="form-control" ng-model="projectInfo.ProjectShortName" />      
+            </div>
+            <div class="md-form">   
+                 <label>Project Description</label>     
+                 <input type="text" class="form-control" ng-model="projectInfo.ProjectDescription" />      
+            </div>
+            <div class="md-form">   
+                 <label>Project ManagerID</label>     
+                 <input type="text" class="form-control" ng-model="projectInfo.ProjectManagerID" />      
+            </div>
+            <div class="md-form">   
+                 <label>Project ManagerName</label>     
+                 <input type="text" class="form-control" ng-model="projectInfo.ProjectManagerName" />      
+            </div>
+            <div class="md-form">   
+                 <label>Project DMName</label>     
+                 <input type="text" class="form-control" ng-model="projectInfo.ProjectDMName" />      
+            </div>
+            <div class="text-center">
+          <button ng-click="addItem(projectInfo); addMode=false" class="btn btn-primary">
+                    Add
+                </button> 
+            </div>
+                             </div>
+               

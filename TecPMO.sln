@@ -1,0 +1,64 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cognizant.Toyota.TecPMO.Core", "Cognizant.Toyota.TecPMO.Core\Cognizant.Toyota.TecPMO.Core.csproj", "{226EC4BE-2FB0-4D76-A0D9-95AB9F7A5D56}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cognizant.Toyota.TecPMO.DAL", "Cognizant.Toyota.TecPMO.DAL\Cognizant.Toyota.TecPMO.DAL.csproj", "{31B231FD-7AEB-45B1-B657-F6D0CBCFA99D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cognizant.Toyota.TecPMO.Service", "Cognizant.Toyota.TecPMO.Service\Cognizant.Toyota.TecPMO.Service.csproj", "{476B429C-AEA9-4C10-A47E-4B5C7587F760}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cognizant.Toyota.TecPMO.Web.API", "Cognizant.Toyota.TecPMO.Web.API\Cognizant.Toyota.TecPMO.Web.API.csproj", "{D8DA2DB2-7979-4D34-86FE-A83748FD6978}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Cognizant.Toyota.TecPMO.Web.UI(1)", "http://localhost:56376", "{3F4F0E81-4DC3-4BE9-823E-014B19ACBFB1}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_56376"
+		Debug.AspNetCompiler.PhysicalPath = "Cognizant.Toyota.TecPMO.Web.UI\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_56376\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_56376"
+		Release.AspNetCompiler.PhysicalPath = "Cognizant.Toyota.TecPMO.Web.UI\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_56376\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "Cognizant.Toyota.TecPMO.Web.UI\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{226EC4BE-2FB0-4D76-A0D9-95AB9F7A5D56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{226EC4BE-2FB0-4D76-A0D9-95AB9F7A5D56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{226EC4BE-2FB0-4D76-A0D9-95AB9F7A5D56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{226EC4BE-2FB0-4D76-A0D9-95AB9F7A5D56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31B231FD-7AEB-45B1-B657-F6D0CBCFA99D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31B231FD-7AEB-45B1-B657-F6D0CBCFA99D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31B231FD-7AEB-45B1-B657-F6D0CBCFA99D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31B231FD-7AEB-45B1-B657-F6D0CBCFA99D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{476B429C-AEA9-4C10-A47E-4B5C7587F760}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{476B429C-AEA9-4C10-A47E-4B5C7587F760}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{476B429C-AEA9-4C10-A47E-4B5C7587F760}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{476B429C-AEA9-4C10-A47E-4B5C7587F760}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8DA2DB2-7979-4D34-86FE-A83748FD6978}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8DA2DB2-7979-4D34-86FE-A83748FD6978}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8DA2DB2-7979-4D34-86FE-A83748FD6978}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8DA2DB2-7979-4D34-86FE-A83748FD6978}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F4F0E81-4DC3-4BE9-823E-014B19ACBFB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F4F0E81-4DC3-4BE9-823E-014B19ACBFB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F4F0E81-4DC3-4BE9-823E-014B19ACBFB1}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F4F0E81-4DC3-4BE9-823E-014B19ACBFB1}.Release|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
