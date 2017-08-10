@@ -57,7 +57,7 @@
     <Compile Include="Mapping\ProjectMapping.cs" />
     <Compile Include="Mapping\RoleMapping.cs" />
     <Compile Include="Mapping\TrainingInfoMapping.cs" />
-    <Compile Include="Mapping\userMapping.cs" />
+    <Compile Include="Mapping\UserMapping.cs" />
     <Compile Include="Mapping\UserRoleMapMapping.cs" />
     <Compile Include="Mapping\VideoDetailsMapping.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

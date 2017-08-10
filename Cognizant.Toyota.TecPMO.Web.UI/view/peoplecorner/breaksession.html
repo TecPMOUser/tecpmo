@@ -1,0 +1,33 @@
+﻿<div class="row">
+    <ul class="breadcrumb">
+        <li><a href="#">Home</a> <span class="divider"></span></li>
+        <li class="active">404 Break Session</li>
+    </ul>
+</div>
+<div class="row">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <i class="fa fa-modx fa-fw"></i>404 Break Session
+        </div>
+        
+    <ul class="gallery gallery1" 
+        >
+  <li ng-repeat="image in images">
+    <a ng-click="openLightboxModal($index)">
+      <img ng-src="{{image.thumbUrl}}" class="img-thumbnail">
+    </a>
+  </li>
+</ul>
+    </div>
+
+
+</div>
+
+<div>
+    <img class="spinner" src="images/spinner.gif" ng-show="vm.loading" />
+</div>
+
+<script src="script/xlsx.core.min.js"></script>
+
+
+

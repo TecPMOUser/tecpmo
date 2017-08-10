@@ -1,0 +1,72 @@
+﻿<div class="row">
+    <ul class="breadcrumb">
+        <li><a href="#">Home</a> <span class="divider"></span></li>
+        <li class="active">Manage Projects</li>
+    </ul>
+</div>
+  <div class="row">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <i class="fa fa-cloud-upload fa-fw"></i> Project Document Upload Section
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="project-upload">
+                         <div class="form-group row">
+
+                         <div class="col-lg-2 col-md-6">
+                             <label for="ProjectSelect">  Project : </label>                            
+                        </div>
+                         <div class="col-lg-4 col-md-6">
+                             <div ng-dropdown-multiselect="" extra-settings="{displayProp: 'ProjectDisplayText', scrollable : true, scrollableHeight: '280px', checkBoxes: false, enableSearch:true, showCheckAll:false, showUncheckAll:false, selectionLimit: 1, smartButtonMaxItems: 1}" options="projectDetails" selected-model="selectedProjects">
+                             </div>
+                          <!--  <select name="repeatSelect" id="repeatSelect" ng-model="project.projectid" class="form-control" required>
+                                <option value="">---Please select---</option>
+                                 <option ng-repeat="project in vm.projectDetails" value="{{project.ProjectID}}">{{project.ProjectID+'-'+project.ProjectName}}</option>
+                            </select>-->
+   
+
+                          </div>
+
+                         <div class="col-lg-2 col-md-6">
+                            <label for="DocumentType">Document Type :</label>
+                        </div>
+
+                              <div class="col-lg-4 col-md-6">
+                                  <select ng-model="project.DocumentType" convert-to-number class="form-control">
+                                      <option value="">---Please select---</option>
+                                        <option value="SOW">SOW</option>
+                                        <option value="CP Sheet">CP Sheet</option>
+                                        <option value="Project Kick Off">Project Kick Off</option>
+                                        <option value="Forecast Sheet">Forecast Sheet</option>
+                                        <option value="Case Studies">Case Studies</option>
+                                   </select>
+                               </div>
+                           </div>
+
+                         <div class="form-group row">
+                             <div class="col-lg-2 col-md-6">
+                            <label for=" DocumentName"> Document Name :</label>
+                        </div>
+                        <div class="col-lg-4 col-md-6">                            
+                                <input type="text" class="form-control" ng-model="project.DocumentName" name="DocumentName" id="DocumentName" placeholder="Enter Document Name">
+                           </div>                            
+                        <div class="col-lg-2 col-md-6">
+                            <label for="file">Document Upload :</label>
+                        </div>
+                        <div class="col-lg-4 col-md-6">    
+                            <input type="file" class="form-control" name="file" id="vm.uploadFile" required accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" onchange="angular.element(this).scope().vm.getFileDetails(this)" placeholder="File Upload">                         
+                        <input ng-model="project.DocumentLocation" type="hidden" />
+                        </div>
+                              </div>                               
+                             <div class="form-group row">
+                        <div class="btn center-block">
+                            <input type="button" value="Submit" ng-click="vm.UpdateDocument(project)" />
+                        </div>  
+                                 </div>                            
+                  
+                    
+              
+                <!-- /.panel-body -->
+            </div>
+        </div>

@@ -1,0 +1,81 @@
+﻿<div class="row">
+    <ul class="breadcrumb">
+        <li><a href="#">Home</a> <span class="divider"></span></li>
+        <li class="active">Accolades</li>
+    </ul>
+</div>
+<div class="row">
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <i class="fa fa-modx fa-fw"></i>Client Accolades Details
+        </div>
+        <div class="pull-left add-new">
+            <input type="button" ng-click=" addRandomItem(row);" class="btn btn-primary addnew pull-right" value="Add New" />
+        </div>
+        <div class="panel-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th width="2%"></th>
+                        <th width="2%"></th>
+                        <th width="20%">Project Name</th>
+                        <th width="19%">MileStone</th>
+                        <th width="10%">Date</th>
+                        <th width="35%">AppreciationNote</th>
+                        <th width="10%">AppreciatedBy</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="accolades in vm.accolades">
+                        <div id="{{accolades.ID}}">
+                        <td>
+                            <button type="button" ng-click="removeItem(accolades)" class="btn btn-sm btn-danger">
+                                <i class="glyphicon glyphicon-trash"></i>
+                            </button>                            
+                        </td>
+                        <td>                            
+                            <button type="button" id="editbutton" ng-click="editaccoladesItem(accolades)" class="btn btn-sm btn-warning">
+                                <i class="glyphicon glyphicon-edit"></i>
+                            </button>
+                             </td>
+                                </div>
+                            <!--<div id="savediv" class="hidden">
+                                <td>
+                                <button type="button" ng-click="editaccoladesItem(accolades)" class="btn btn-sm btn-danger">
+                                <i class="glyphicon glyphicon-ok-circle"></i>
+                            </button>
+                                    </td>
+                                <td>
+                                <button type="button" class="btn btn-sm btn-danger">
+                                <i class="glyphicon glyphicon-remove-circle"></i>
+                            </button>
+                                    </td>
+                            </div>      -->                 
+                        <td>{{accolades.ProjectName}}</td>
+                        <td>{{accolades.Milestone}}</td>
+                        <td>{{accolades.Date | date:'dd-MM-yyyy'}}</td>
+                        <td>{{accolades.AppreciationNote}}</td>
+                        <td>{{accolades.AppreciatedBy}}</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="9" class="text-center">
+                            <div st-pagination="" st-items-by-page="5"></div>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+<div>
+    <img class="spinner" src="images/spinner.gif" ng-show="vm.loading" />
+</div>
+<script src="script/xlsx.core.min.js"></script>
+
+
+

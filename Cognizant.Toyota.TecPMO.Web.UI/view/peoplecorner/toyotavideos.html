@@ -1,0 +1,50 @@
+﻿<div class="row">
+    <ul class="breadcrumb">
+        <li><a href="#">Home</a> <span class="divider"></span></li>
+        <li class="active">Toyota Video's</li>
+    </ul>
+</div>
+
+
+<div class="row">
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <i class="fa fa-video-camera"></i> Toyota Videos
+        </div>
+        <div class="panel-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr style="background-color: #ddd">
+                        <th>Video Name</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="videoInfo in vm.videoDetails">
+                         <td>
+                            {{videoInfo.VideoName}}
+                        </td>
+                        <td>
+                           <a ng-click="fnVideoClick(videoInfo)" ng-href='' target="_self">View</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+                    <div class="container">
+                        
+                        <!-- Modal -->
+                        <div class="modal fade" id="videoModal" role="dialog">
+                            <div class="modal-dialog">
+
+                                <!-- Modal content-->
+                               
+
+                            </div>
+                        </div>
+
+                    </div>
+        </div>
+    </div>
+
+</div>
