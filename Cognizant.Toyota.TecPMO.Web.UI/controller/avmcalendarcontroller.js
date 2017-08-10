@@ -32,7 +32,7 @@
             ProjectService.GetAVMProjectCalendar()
                            .then(function (data) {
                                for (var i = 0; i < data.length; i++) {
-                                   event.push({ title: data[i].Title, start: new Date(data[i].EventTypeDate), color: loadColor(data[i].Status), allDay: true, projectId: data[i].ProjectID });
+                                   event.push({ title: data[i].Title, start: new Date(data[i].EventTypeDate), color: loadColor(data[i].Status), allDay: true, projectId: data[i].ProjectID,stage: data[i].Stage,id: data[i].ID  });
                                }
                                $scope.isShow = true;
                                $scope.eventSources3 = [event];
@@ -74,8 +74,14 @@
                             controllerAs: 'vm',
                             size: 'lg',
                             resolve: {
-                                projectId: function () {
-                                    return event.projectId;
+                                ID: function () {
+                                    return event.id;
+                                },
+                                Title: function () {
+                                    return event.title;
+                                },
+                                Stage: function () {
+                                    return event.stage;
                                 }
                             }
                         });

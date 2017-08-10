@@ -18,9 +18,9 @@ namespace Cognizant.Toyota.TecPMO.DAL.Repository.Implementation
             return GetAll<Project>().ToList();
         }
 
-        public Project GetProjectDetailsById(string projectID) 
+        public Project GetProjectDetailsById(long id) 
         {
-            return GetSingle<Project>(x => x.ProjectID == projectID).FirstOrDefault();
+            return GetSingle<Project>(x => x.ID == id).FirstOrDefault();
         }
 
         public int SaveProject(List<Project> project)
@@ -28,8 +28,35 @@ namespace Cognizant.Toyota.TecPMO.DAL.Repository.Implementation
             int count=0;
             try
             {
-                AddRange(project);
+                if(project.Count>0)
+                {
+                foreach(var item in project)
+                {
+                    var proj = GetSingle<Project>(x => x.ProjectID == item.ProjectID && (x.ProjectName.ToUpper()).Trim()==(item.ProjectName.ToUpper()).Trim()&&(x.Type.ToUpper()).Trim()==(item.Type.ToUpper()).Trim()).FirstOrDefault();
+                    if (proj != null)
+                    {
+                        proj.ProjectManager = item.ProjectManager;
+                        proj.PortifolioOwner = item.PortifolioOwner;
+                        proj.DesignEndDate = item.DesignEndDate;
+                        proj.CUTEndDate = item.CUTEndDate;
+                        proj.SITEndDate = item.SITEndDate;
+                        proj.UATEndDate = item.UATEndDate;
+                        proj.GoLiveDate = item.GoLiveDate;
+                        proj.Status = item.Status;
+                        proj.ReasonForAR = item.ReasonForAR;
+                        proj.PathToMoveGreen = item.PathToMoveGreen;
+                        proj.Comments = item.Comments;
+                        proj.PathToGreenDate = item.PathToGreenDate;
+                        proj.ModifiedDt = DateTime.Now;
+                        Update(proj);
+                    }
+                    else
+                    {
+                        Add(item);
+                    }
+                }                                
                 count= Save();
+                }
 
             }
             catch (DbEntityValidationException dbEx)

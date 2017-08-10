@@ -14,6 +14,9 @@ namespace Cognizant.Toyota.TecPMO.DAL.Repository.Implementation
         {
             return GetAll<ProcessTemplate>().ToList();
         }
-
+        public IList<VideoDetails> GetAllVideoDetail()
+        {
+            return GetAll<VideoDetails>().ToList();
+        }
     }
 }

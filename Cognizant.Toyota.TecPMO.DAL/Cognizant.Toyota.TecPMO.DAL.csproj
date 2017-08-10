@@ -47,16 +47,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Mapping\AssociateMapping.cs" />
+    <Compile Include="Mapping\AuthorizationMapping.cs" />
     <Compile Include="Mapping\ClientAccoladesMapping.cs" />
+    <Compile Include="Mapping\CourseMapping.cs" />
+    <Compile Include="Mapping\DocumentDetailsMapping.cs" />
     <Compile Include="Mapping\ProcessTemplateMapping.cs" />
     <Compile Include="Mapping\ProjectDetailsMapping.cs" />
     <Compile Include="Mapping\ProjectMapping.cs" />
+    <Compile Include="Mapping\RoleMapping.cs" />
+    <Compile Include="Mapping\TrainingInfoMapping.cs" />
+    <Compile Include="Mapping\userMapping.cs" />
+    <Compile Include="Mapping\UserRoleMapMapping.cs" />
+    <Compile Include="Mapping\VideoDetailsMapping.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\Implementation\AuthorizationRepository.cs" />
     <Compile Include="Repository\Implementation\ClientAccoladesRepository.cs" />
     <Compile Include="Repository\Implementation\ProcessRepository.cs" />
     <Compile Include="Repository\Implementation\ProjectDetailsRepository.cs" />
     <Compile Include="Repository\Implementation\ProjectRepository.cs" />
     <Compile Include="Repository\Implementation\Repository.cs" />
+    <Compile Include="Repository\Interface\IAuthorizationRepository.cs" />
     <Compile Include="Repository\Interface\IClientAccoladesRepository.cs" />
     <Compile Include="Repository\Interface\IProcessRepository.cs" />
     <Compile Include="Repository\Interface\IProjectDetailsRepository.cs" />

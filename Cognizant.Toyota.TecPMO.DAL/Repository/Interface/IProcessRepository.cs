@@ -10,5 +10,6 @@ namespace Cognizant.Toyota.TecPMO.DAL.Repository.Interface
     public interface IProcessRepository: IRepository
     {
         IList<ProcessTemplate> GetAllProcessTemplate();
+        IList<VideoDetails> GetAllVideoDetail();
     }
 }

@@ -12,9 +12,10 @@ namespace Cognizant.Toyota.TecPMO.DAL.Repository.Interface
         IList<ProjectDetails> GetAllProjectDetails();
 
         int UpdateProjectDetails(ProjectDetails projectdetails);
-
-        int SaveProjectDetails(ProjectDetails projectdetails);
+        int SaveProjectDocumentDetails(DocumentDetails projectdocuemntdetails);
+        int SaveProjectDetails(List<ProjectDetails> projectdetails);
 
         int DeleteProjectDetails(int ID);
+        IList<DocumentDetails> GetDocumentsForProject(string ProjectID);
     }
 }

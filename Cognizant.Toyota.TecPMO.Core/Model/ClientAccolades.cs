@@ -4,7 +4,8 @@ namespace Cognizant.Toyota.TecPMO.Core.Model
 {
     public  class ClientAccolades
     {
-        public long ID { get; set; }        
+        public long ID { get; set; }
+        public string ProjectID { get; set; }
         public string ProjectName { get; set; }
         public string Milestone { get; set; }
         public DateTime? Date { get; set; }

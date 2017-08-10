@@ -8,5 +8,7 @@ namespace Cognizant.Toyota.TecPMO.Service.Interface
         IList<ClientAccolades> GetAllAccolades();
 
         int SaveAccolades(List<ClientAccolades> accolades);
+
+        int RemoveAccolades(ClientAccolades accolades);
     }
 }

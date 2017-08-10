@@ -1,7 +1,9 @@
 ﻿<!DOCTYPE html>
 <html ng-app="app">
 <head>
-    <base href="/" />
+    <!--<base href="http://ctsc00507221001.cts.com:90/Tec-PMO-App/" />-->
+    <!--<base href="/Tec-PMO-App/" />-->
+   <base href="/" />
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,15 +13,16 @@
     <link href="content/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="content/fullcalendar.min.css" rel="stylesheet" type="text/css">
 
+     <link href="content/angular-bootstrap-lightbox.min.css" rel="stylesheet" type="text/css">
+
 </head>
-<body>
-   
-    
+<body ng-controller="MainController">
+  
     <header>
         <div ng-include src="'view/templates/header.html'"></div>
     </header>
         <div class="container body-content">
-            <div ng-view class="center-container">
+            <div ng-view class="center-container" style="margin-top:10px;">
             </div>
             </div>
 
@@ -46,18 +49,21 @@
     <script src="script/angular-cookies.min.js"></script>
     <script src="script/angular-animate.min.js"></script>
     <script src="script/angular-sanitize.min.js"></script>
-    
+    <script src="script/angular-moment.min.js"></script>
     <script src="script/smart-table.min.js"></script>
-
+    <script src="script/angular-bootstrap-lightbox.min.js"></script>
+    <script src="script/angularjs-dropdown-multiselect.min.js"></script>
 
     <script src="app.js"></script>
-    <!--<script src="services/authentication.service.js"></script>-->
-   <!-- <script src="services/flash.service.js"></script>-->
+    <script src="services/authService.js"></script>
     <script src="services/user.service.js"></script>
-
+    <script src="services/operationalcornerService.js"></script>
     <script src="services/projectService.js"></script>
     <script src="services/processService.js"></script>
+    
     <script src="CustomDirective/CustomDirective.js"></script>
+
+    <script src="controller/maincontroller.js"></script>
     <script src="controller/home.controller.js"></script>
     <script src="controller/projectController.js"></script>
     <script src="controller/processController.js"></script>
@@ -65,6 +71,7 @@
     <script src="controller/avmcalendarcontroller.js"></script>
     <script src="controller/calendarmodalcontroller.js"></script>
     <script src="controller/projectdetailscontroller.js"></script>
+    <script src="controller/adminprojectscontroller.js"></script>
     
 
 </body>

@@ -14,6 +14,6 @@ namespace Cognizant.Toyota.TecPMO.DAL.Repository.Interface
 
         int SaveProject(List<Project> project);
 
-        Project GetProjectDetailsById(string projectID);
+        Project GetProjectDetailsById(long id);
     }
 }

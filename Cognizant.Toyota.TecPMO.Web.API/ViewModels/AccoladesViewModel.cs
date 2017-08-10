@@ -4,6 +4,7 @@ namespace Cognizant.Toyota.TecPMO.Web.API.ViewModels
 {
     public class AccoladesViewModel
     {
+        public string ProjectID { get; set; }
         public string ProjectName { get; set; }
         public string Milestone { get; set; }
         public string Date { get; set; }

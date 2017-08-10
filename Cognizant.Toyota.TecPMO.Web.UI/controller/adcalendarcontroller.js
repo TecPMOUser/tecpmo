@@ -34,11 +34,7 @@
                                for (var i = 0; i < data.length; i++) {
 
 
-                                   var myDate = data[i].EventTypeDate;
-                                   myDate = myDate.split("-");
-                                   var dt = new Date(parseInt(myDate[0], 10), parseInt(myDate[2], 10) - 1, parseInt(myDate[1]), 10);
-
-                                   event.push({ title: data[i].Title, start: dt, color: loadColor(data[i].Status), allDay: true, projectId: data[i].ProjectID });
+                                   event.push({ title: data[i].Title, start: data[i].EventTypeDate, color: loadColor(data[i].Status), allDay: true, projectId: data[i].ProjectID, stage: data[i].Stage,id: data[i].ID });
                                }
                                $scope.isShow = true;
                                $scope.eventSources2 = [event];
@@ -81,8 +77,14 @@
                                 controllerAs: 'vm',
                                 size: 'lg',
                                 resolve: {
-                                    projectId: function () {
-                                        return event.projectId;
+                                    ID: function () {
+                                        return event.id;
+                                    },
+                                    Title: function () {
+                                        return event.title;
+                                    },
+                                    Stage: function () {
+                                        return event.stage;
                                     }
                                 }
                             });

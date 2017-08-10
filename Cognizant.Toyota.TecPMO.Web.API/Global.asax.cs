@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cognizant.Toyota.TecPMO.Web.API.Authorization;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -18,6 +19,7 @@ namespace Cognizant.Toyota.TecPMO.Web.API
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            //GlobalConfiguration.Configuration.Filters.Add(new RoleAuthorization());
         }
     }
 }

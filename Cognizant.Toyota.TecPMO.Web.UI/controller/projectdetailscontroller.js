@@ -24,10 +24,11 @@
                            });
 
         };
+
         $rootScope.getFileDetails = function (e) {
-            vm.files = e.files[0];            
+            vm.files = e.files[0];
         };
-      
+
         $rootScope.addRandomItem = function () {
             modalPopup().result
        .then(function (data) {
@@ -35,9 +36,9 @@
        })
        .then(null, function (reason) {
            console.log(data);
-       });            
+       });
         }
-       
+
         var modalPopup = function () {
             return $rootScope.modalInstance = $uibModal.open({
                 backdrop: true,
@@ -49,7 +50,17 @@
                 size: 'lg'
             });
         };
-
+        var modalPopupView = function () {
+            return $rootScope.modalInstance = $uibModal.open({
+                backdrop: true,
+                keyboard: true,
+                backdropClick: true,
+                templateUrl: 'view/modal/projectdetailsviewmodel.html',
+                controller: 'projectdetailscontroller',
+                controllerAs: vm,
+                size: 'lg'
+            });
+        };
         var modalPopupedit = function () {
             return $rootScope.modalInstanceedit = $uibModal.open({
                 backdrop: true,
@@ -74,7 +85,7 @@
                          });
             }
             ProjectService.SaveProjectDetails(projectInfo)
-                         .then(function (data) {                            
+                         .then(function (data) {
                              LoadProject();
                              console.log(data)
                              $rootScope.modalInstance.dismiss('No Button Clicked');
@@ -89,7 +100,7 @@
             console.log(projectid);
             if (deleteProject) {
                 ProjectService.DeleteProjectDetails(projectid)
-                               .then(function (data) {                                   
+                               .then(function (data) {
                                    LoadProject();
                                    console.log(data)
                                }).finally(function () {
@@ -101,23 +112,41 @@
             }
 
         },
-         $rootScope.ok = function () {             
+         $rootScope.ok = function () {
              $rootScope.modalInstance.dismiss('No Button Clicked')
 
          },
+         $rootScope.viewItem = function (projectInfo) {
+             $rootScope.viewprojectInfo = projectInfo;
+             ProjectService.GetDocumentsForProject(projectInfo.ProjectID)
+                          .then(function (data) {
+                              angular.forEach(data, function (item) {
+                                  item.DocumentLocation = globalServiceURL + item.DocumentLocation;
+                              });
+                              //console.log(data)
+                              $rootScope.documentdetails = data;
+                              modalPopupView().result
+                                   .then(function (data) {
+                                       console.log(data);
+                                   })
+                          }).finally(function () {
+                              vm.loading = false;
+                          });
 
+
+         },
         $rootScope.editItem = function (projectInfo) {
             console.log(projectInfo);
             $rootScope.editprojectInfo = projectInfo;
             modalPopupedit().result
                   .then(function (data) {
-                     console.log(data);
-                     })
+                      console.log(data);
+                  })
                 .then(null, function (reason) {
-                     console.log(data);
-                });        
+                    console.log(data);
+                });
 
-            
+
         },
         $rootScope.updateItem = function (projectInfo) {
             console.log(projectInfo);
@@ -137,6 +166,6 @@
         }
         LoadProject();
     }
-    
+
 
 })();

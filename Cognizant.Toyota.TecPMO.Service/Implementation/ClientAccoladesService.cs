@@ -24,5 +24,10 @@ namespace Cognizant.Toyota.TecPMO.Service.Implementation
         {
             return repository.SaveAccolades(accolades);
         }
+
+        public int RemoveAccolades(ClientAccolades accolades)
+        {
+            return repository.RemoveAccolades(accolades);
+        }
     }
 }

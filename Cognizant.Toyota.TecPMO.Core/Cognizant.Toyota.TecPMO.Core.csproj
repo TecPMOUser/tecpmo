@@ -42,11 +42,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constant.cs" />
+    <Compile Include="Model\AcademyDashboard.cs" />
+    <Compile Include="Model\Associate.cs" />
+    <Compile Include="Model\Authorization.cs" />
     <Compile Include="Model\ClientAccolades.cs" />
+    <Compile Include="Model\Course.cs" />
+    <Compile Include="Model\DocumentDetails.cs" />
     <Compile Include="Model\PrjDetailsDocument.cs" />
     <Compile Include="Model\ProcessTemplate.cs" />
     <Compile Include="Model\Project.cs" />
     <Compile Include="Model\ProjectDetails.cs" />
+    <Compile Include="Model\Role.cs" />
+    <Compile Include="Model\TrainingInfo.cs" />
+    <Compile Include="Model\user.cs" />
+    <Compile Include="Model\UserRoleMapping.cs" />
+    <Compile Include="Model\UserRoleModel.cs" />
+    <Compile Include="Model\VideoDetails.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

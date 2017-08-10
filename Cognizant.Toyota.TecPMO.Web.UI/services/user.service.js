@@ -62,6 +62,10 @@
             return $http.delete('/api/users/' + id).then(handleSuccess, handleError('Error deleting user'));
         }
 
+        function GetCurrentUser() {
+            return $http.get(serviceURL + '/api/Auth/Get').then(handleSuccess, handleError('Error getting all users'));
+        }
+
         // private functions
 
         function handleSuccess(res) {

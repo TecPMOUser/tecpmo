@@ -13,6 +13,6 @@ namespace Cognizant.Toyota.TecPMO.Service.Interface
 
         int SaveProject(List<Project> project);
 
-        Project GetProjectDetailsById(string projectID);
+        Project GetProjectDetailsById(long id);
     }
 }

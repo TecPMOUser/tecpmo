@@ -19,25 +19,17 @@
         var serviceURL = globalServiceURL;
 
         service.GetAllProcessTemplate = GetAllProcessTemplate;
-        
+        service.GetAllVideoDetail = GetAllVideoDetail;
 
         return service;
 
         function GetAllProcessTemplate() {
-            return $http.get(serviceURL + 'api/Process/GetAllProcessTemplate').then(handleSuccess, handleError('Error getting all Process Template'));
+            return $http.get(serviceURL + 'api/Process/GetAllProcessTemplate').then(handleSuccess, handleError);
         }
-
+        function GetAllVideoDetail() {
+            return $http.get(serviceURL + 'api/Process/GetAllVideoDetail').then(handleSuccess, handleError);
+        }
         // private functions
-
-        function handleSuccess(res) {
-            return res.data;
-        }
-
-        function handleError(error) {
-            return function () {
-                return { success: false, message: error };
-            };
-        }
     }
 
 })();

@@ -14,7 +14,7 @@ namespace Cognizant.Toyota.TecPMO.DAL.Repository.Implementation
     {
         public IList<ClientAccolades> GetAllAccolades()
         {
-            return GetAll<ClientAccolades>().ToList();
+            return GetAll<ClientAccolades>().OrderByDescending(x=>x.Date).ToList();
         }
 
         public int SaveAccolades(List<ClientAccolades> accolades)
@@ -41,6 +41,27 @@ namespace Cognizant.Toyota.TecPMO.DAL.Repository.Implementation
             return count;
 
 
+        }
+        public int RemoveAccolades(ClientAccolades accolades)
+        {
+            try
+            {
+                int result = 0;
+                if (accolades != null)
+                {
+                    var id = GetAll<ClientAccolades>().Where(x => x.ID == accolades.ID).FirstOrDefault();
+                    if (id != null)
+                    {
+                        Delete(id);
+                        result = Save();
+                    }
+                }
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

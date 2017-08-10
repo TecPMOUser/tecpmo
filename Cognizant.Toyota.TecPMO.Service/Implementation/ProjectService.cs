@@ -29,9 +29,9 @@ namespace Cognizant.Toyota.TecPMO.Service.Implementation
             return repository.SaveProject(project);
         }
 
-        public Project GetProjectDetailsById(string projectID)
+        public Project GetProjectDetailsById(long id)
         {
-            return repository.GetProjectDetailsById(projectID);
+            return repository.GetProjectDetailsById(id);
         }
     }
 }

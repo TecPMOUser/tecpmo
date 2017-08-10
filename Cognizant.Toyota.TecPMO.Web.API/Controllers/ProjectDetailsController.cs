@@ -63,30 +63,30 @@ namespace Cognizant.Toyota.TecPMO.Web.API.Controllers
         [HttpPost]
         public HttpResponseMessage SaveProjectDetails([FromBody]ProjectDetailsViewModel projectDetails)
         {
-            HttpResponseMessage response;
+            HttpResponseMessage response=null;
             ProjectDetails prjdetails = new ProjectDetails();
             if (projectDetails != null)
             {
-                prjdetails.ID = projectDetails.ID;
-                prjdetails.ProjectID = projectDetails.ProjectID;
-                prjdetails.ESAProjectName = projectDetails.ESAProjectName;
-                prjdetails.ProjectShortName = projectDetails.ProjectShortName;
-                prjdetails.ProjectManagerID = projectDetails.ProjectManagerID;
-                prjdetails.ProjectManagerName = projectDetails.ProjectManagerName;
-                prjdetails.ProjectDMName = projectDetails.ProjectDMName;
-                prjdetails.ProjectDescription = projectDetails.ProjectDescription;
-                var path = Path.Combine(HttpContext.Current.Server.MapPath("~/App_Data/Project Documents/"), projectDetails.URL);
+                //prjdetails.ID = projectDetails.ID;
+                //prjdetails.ProjectID = projectDetails.ProjectID;
+                //prjdetails.ESAProjectName = projectDetails.ESAProjectName;
+                //prjdetails.ProjectShortName = projectDetails.ProjectShortName;
+                //prjdetails.ProjectManagerID = projectDetails.ProjectManagerID;
+                //prjdetails.ProjectManagerName = projectDetails.ProjectManagerName;
+                //prjdetails.ProjectDMName = projectDetails.ProjectDMName;
+                //prjdetails.ProjectDescription = projectDetails.ProjectDescription;
+                //var path = Path.Combine(HttpContext.Current.Server.MapPath("~/App_Data/Project Documents/"), projectDetails.URL);
 
             }
-            var serviceCode = service.SaveProjectDetails(prjdetails);
-            if (serviceCode > 0)
-            {
-                response = Request.CreateResponse(HttpStatusCode.OK);
-            }
-            else
-            {
-                response = Request.CreateResponse(HttpStatusCode.InternalServerError);
-            }
+            //var serviceCode = service.SaveProjectDetails(prjdetails);
+            //if (serviceCode > 0)
+            //{
+            //    response = Request.CreateResponse(HttpStatusCode.OK);
+            //}
+            //else
+            //{
+            //    response = Request.CreateResponse(HttpStatusCode.InternalServerError);
+            //}
 
             return response;
         }
@@ -134,7 +134,16 @@ namespace Cognizant.Toyota.TecPMO.Web.API.Controllers
                 path = Path.Combine(HttpContext.Current.Server.MapPath("~/App_Data/Project Documents/"), fileName);
                 file.SaveAs(path);
             }
-            return Ok();
+            return Ok(path);
+        }
+        [HttpGet]
+        public HttpResponseMessage GetDocumentsForProject(string projectid)
+        {
+            var project = service.GetDocumentsForProject(projectid);
+            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, project);
+
+            return response;
+
         }
     }
 }

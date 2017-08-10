@@ -13,8 +13,10 @@ namespace Cognizant.Toyota.TecPMO.Service.Interface
 
         int UpdateProjectDetails(ProjectDetails projectDetails);
 
-        int SaveProjectDetails(ProjectDetails projectDetails);
+        int SaveProjectDetails(List<ProjectDetails> projectDetails);
 
         int DeleteProjectDetails(int ID);
+        IList<DocumentDetails> GetDocumentsForProject(string ProjectId);
+        int SaveProjectDocumentDetails(DocumentDetails projectdocuemntdetails);
     }
 }

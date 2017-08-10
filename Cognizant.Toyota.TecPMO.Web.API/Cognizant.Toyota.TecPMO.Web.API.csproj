@@ -19,8 +19,8 @@
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
-    <IISExpressAnonymousAuthentication />
-    <IISExpressWindowsAuthentication />
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
@@ -59,6 +59,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -130,6 +131,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Project Documents\" />
+    <Folder Include="Documents\" />
     <Folder Include="Views\Accolades\" />
   </ItemGroup>
   <ItemGroup>
@@ -165,8 +167,11 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Authorization\RoleAuthorization.cs" />
     <Compile Include="Controllers\AccoladesController.cs" />
+    <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OperationalController.cs" />
     <Compile Include="Controllers\ProcessController.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
     <Compile Include="Controllers\ProjectDetailsController.cs" />
@@ -182,7 +187,9 @@
     <Compile Include="ViewModels\DashboardModel.cs" />
     <Compile Include="ViewModels\ProjectDeliveryMilestoneViewModel.cs" />
     <Compile Include="ViewModels\ProjectDetailsListModel.cs" />
+    <Compile Include="ViewModels\ProjectDetailsRequestViewModel.cs" />
     <Compile Include="ViewModels\ProjectDetailsViewModel.cs" />
+    <Compile Include="ViewModels\ProjectDocumentViewModel.cs" />
     <Compile Include="ViewModels\ProjectRequestModel.cs" />
     <Compile Include="ViewModels\ProjectStatus.cs" />
     <Compile Include="ViewModels\ProjectViewModel.cs" />

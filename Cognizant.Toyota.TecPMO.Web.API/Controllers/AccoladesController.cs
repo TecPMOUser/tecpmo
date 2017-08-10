@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Linq;
 using System;
+using System.Globalization;
 
 namespace Cognizant.Toyota.TecPMO.Web.API.Controllers
 {
@@ -38,10 +39,11 @@ namespace Cognizant.Toyota.TecPMO.Web.API.Controllers
                 CreatedBy = "",
                 CreatedDt = DateTime.Now,                             
                 ModifiedBy = "",
-                ModifiedDt = DateTime.Now,                                
+                ModifiedDt = DateTime.Now,
+                ProjectID = x.ProjectID,
                 ProjectName = x.ProjectName,
                 Milestone = x.Milestone,
-                Date = ConvertToDateTime(x.Date),
+                Date = DateFormat(x.Date),
                 AppreciationNote = x.AppreciationNote,
                 AppreciatedBy = x.AppreciatedBy,
                 Designation = x.Designation,
@@ -60,6 +62,19 @@ namespace Cognizant.Toyota.TecPMO.Web.API.Controllers
 
             return response;            
         }
+        [HttpPost]
+        public HttpResponseMessage RemoveAcclodates([FromBody]ClientAccolades accolades)
+        {
+            int result=0;
+            if (accolades != null)
+            {
+                result = service.RemoveAccolades(accolades);
+            }
+            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, result);
+
+            return response;
+        }
+
         private DateTime? ConvertToDateTime(string dateValue)
         {
             DateTime dateTimeValue = DateTime.MinValue;
@@ -69,6 +84,20 @@ namespace Cognizant.Toyota.TecPMO.Web.API.Controllers
             }
 
             return DateTime.MinValue != dateTimeValue ? dateTimeValue : (DateTime?)null;
+        }
+        private DateTime? DateFormat(string dateValue)
+        {
+            if (dateValue != null)
+            {
+                string[] formats = new[] { "MM/dd/yyyy", "dd-MMM-yyyy", 
+                            "yyyy-MM-dd", "dd-MM-yyyy", "dd MMM yyyy", "M/dd/yy","M/dd/yyyy","MM/d/yy","MM/d/yyyy","M/d/yy","M/d/yyyy"};
+                DateTime d = DateTime.ParseExact(dateValue, formats, CultureInfo.InvariantCulture, DateTimeStyles.None);
+                return Convert.ToDateTime(d.ToString("yyyy-MM-dd"));
+            }
+            else
+            {
+                return null;
+            }
         }
 
     }

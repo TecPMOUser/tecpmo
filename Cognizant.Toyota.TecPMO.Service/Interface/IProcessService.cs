@@ -10,5 +10,6 @@ namespace Cognizant.Toyota.TecPMO.Service.Interface
     public interface IProcessService
     {
         IList<ProcessTemplate> GetAllProcessTemplate();
+        IList<VideoDetails> GetAllVideoDetail();
     }
 }

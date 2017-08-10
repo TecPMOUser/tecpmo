@@ -27,5 +27,12 @@ namespace Cognizant.Toyota.TecPMO.Web.API.Controllers
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, processTempalte);
             return response;
         }
+        [HttpGet]
+        public HttpResponseMessage GetAllVideoDetail()
+        {
+            var videoDetail = service.GetAllVideoDetail().ToList();
+            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, videoDetail);
+            return response;
+        }
     }
 }

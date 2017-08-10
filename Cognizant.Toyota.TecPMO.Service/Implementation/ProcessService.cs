@@ -26,5 +26,9 @@ namespace Cognizant.Toyota.TecPMO.Service.Implementation
         {
             return repository.GetAllProcessTemplate();
         }
+        public IList<VideoDetails> GetAllVideoDetail()
+        {
+            return repository.GetAllVideoDetail();
+        }
     }
 }

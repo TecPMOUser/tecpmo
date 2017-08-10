@@ -34,12 +34,18 @@
         service.SaveProjectDetails = SaveProjectDetails;
         service.DeleteProjectDetails = DeleteProjectDetails;
         service.UploadProjectDocuments = UploadProjectDocuments;
+        service.GetDocumentsForProject = GetDocumentsForProject;
+        service.RemoveAccolades = RemoveAccolades;
 
         return service;
 
         function GetAllProjectDetails() {
-            return $http.get(serviceURL + 'api/ProjectDetails/GetAllProjectDetails').then(handleSuccess, handleError('Error getting all Project details'));
+            return $http.get(serviceURL + 'api/ProjectDetails/GetAllProjectDetails').then(handleSuccess, handleError);
         }
+        function GetDocumentsForProject(projectId) {
+            return $http.get(serviceURL + 'api/ProjectDetails/GetDocumentsForProject', { params: { projectId: projectId } }).then(handleSuccess, handleError('Error getting all project'));
+        }
+
         function UploadProjectDocuments(files) {
            
             var fd = new FormData();           
@@ -53,14 +59,16 @@
         }
 
         function GetADProjectCalendar() {
-            return $http.get(serviceURL + 'api/Project/GetADProjectCalendar').then(handleSuccess, handleError('Error getting all Project'));
+            return $http.get(serviceURL + 'api/Project/GetADProjectCalendar').then(handleSuccess, handleError);
         }
         function GetAVMProjectCalendar() {
-            return $http.get(serviceURL + 'api/Project/GetAVMProjectCalendar').then(handleSuccess, handleError('Error getting all Project'));
+            return $http.get(serviceURL + 'api/Project/GetAVMProjectCalendar').then(handleSuccess, handleError);
         }
 
         function GetAllAccolades() {
-            return $http.get(serviceURL + 'api/Accolades/GetAllAccolades').then(handleSuccess, handleError('Error getting all accolades'));
+            return $http.get(serviceURL + 'api/Accolades/GetAllAccolades?c=' + new Date()).then(function (response) {
+                return response.data;
+            }, handleError);
         }
 
         function SaveAccolades(dataProject, typeobj) {
@@ -92,7 +100,7 @@
 
         }
         function DeleteProjectDetails(projectid) {
-            return $http.get(serviceURL + 'api/Projectdetails/DeleteProjectDetails', { params: { ID: projectid } }).then(handleSuccess, handleError('Error getting while deleteing project'));
+            return $http.get(serviceURL + 'api/Projectdetails/DeleteProjectDetails', { params: { ID: projectid } }).then(handleSuccess, handleError);
         }
         function SaveProjectDetails(projectInfo, typeobj) {
             return $http({
@@ -110,23 +118,23 @@
 
         }
         function GetAllADProject() {
-            return $http.get(serviceURL + 'api/Project/GetAllADProject').then(handleSuccess, handleError('Error getting all project'));
+            return $http.get(serviceURL + 'api/Project/GetAllADProject').then(handleSuccess, handleError);
         }
         function GetAllProject() {
-            return $http.get(serviceURL + 'api/Project/GetAllProject').then(handleSuccess, handleError('Error getting all project'));
+            return $http.get(serviceURL + 'api/Project/GetAllProject').then(handleSuccess, handleError);
         }
         function GetAllAVMProject() {
-            return $http.get(serviceURL + 'api/Project/GetAllAVMProject').then(handleSuccess, handleError('Error getting all project'));
+            return $http.get(serviceURL + 'api/Project/GetAllAVMProject').then(handleSuccess, handleError);
         }
 
         function GetADProjectStatus() {
-            return $http.get(serviceURL + 'api/Project/GetADProjectStatus').then(handleSuccess, handleError('Error getting all project'));
+            return $http.get(serviceURL + 'api/Project/GetADProjectStatus').then(handleSuccess, handleError);
         }
         function GetProjectStatus() {
-            return $http.get(serviceURL + 'api/Project/GetProjectStatus').then(handleSuccess, handleError('Error getting all project'));
+            return $http.get(serviceURL + 'api/Project/GetProjectStatus').then(handleSuccess, handleError);
         }
         function GetAVMProjectStatus() {
-            return $http.get(serviceURL + 'api/Project/GetAVMProjectStatus').then(handleSuccess, handleError('Error getting all project'));
+            return $http.get(serviceURL + 'api/Project/GetAVMProjectStatus').then(handleSuccess, handleError);
         }
 
         function SaveProject(dataProject,typeobj) {
@@ -145,20 +153,35 @@
             });
         }
 
-        function GetProjectDetailsById(projectId) {
-            return $http.get(serviceURL + 'api/Project/GetProjectDetailsById', { params: { projectId: projectId } }).then(handleSuccess, handleError('Error getting all project'));
+        function GetProjectDetailsById(ID) {
+            return $http.get(serviceURL + 'api/Project/GetProjectDetailsById', { params: { id: ID } }).then(handleSuccess, handleError);
         }
+       
+        function RemoveAccolades(accoladesdetails) {
+            return $http({
+                method: "POST",
+                url: serviceURL + 'api/Accolades/RemoveAcclodates',
+                data: { ID: accoladesdetails.ID, ProjectID: accoladesdetails.projectID, ProjectName: accoladesdetails.ProjectName },
+                headers: {
+                    'Content-Type': 'application/json'
+                }
 
 
-        function handleSuccess(res) {
-            return res.data;
-        }
 
-        function handleError(error) {
-            return function () {
-                return { success: false, message: error };
-            };
+            });
         }
+        
+
+
+        //function handleSuccess(res) {
+        //    return res.data;
+        //}
+
+        //function handleError(error) {
+        //    return function () {
+        //        return { success: false, message: error };
+        //    };
+        //}
     }
 
 })();

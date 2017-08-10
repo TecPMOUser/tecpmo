@@ -1,18 +1,18 @@
 ﻿<div class="navbar navbar-default navbar-fixed-top bs-docs-nav container" role="banner" ng-controller="HomeController">
-    <div class="row" style="border-bottom-color: #e7e7e7; border-bottom: 1px solid;">
+    <div class="row" style="border-bottom-color: #e7e7e7; border-bottom: 1px solid #e7e7e7;">
 
         <div class="col-lg-3">
             <div>
-                <img src="images/cognizantwhite_small.png" width="100">
+                <img src="images/cognizantwhite_small.png" style="width:35%;">
             </div>
         </div>
         <div class="col-lg-6">
             <a href="#" class="navbar-brand">
                 <img src="images/Title.png" alt="Tec PMO" /></a>
         </div>
-        <div class="col-lg-3" style="padding-top:10px">
+        <div class="col-lg-3" style="padding-top: 10px">
             <div class="pull-right">
-                <img src="images/toyota.png" width="40">
+                <img class="pull-right" src="images/toyota.png" style="width:31%;">
             </div>
         </div>
 
@@ -34,14 +34,12 @@
                     </a>
                     <ul class="dropdown-menu" uib-dropdown-menu role="menu">
                         <li role="menuitem">
-                            <a href="#/project">Project</a>
+                            <a href="#/project">Admin DashBoard</a>
                         </li>
-                        <li role="menuitem">
-                            <a href="#/accolades">Client Accolades</a>
-                        </li>
-                        <li role="menuitem">
+
+                        <!--<li role="menuitem">
                             <a href="#/projectdetails">Project Details</a>
-                        </li>
+                        </li>-->
                     </ul>
                 </li>
                 <li class="dropdown" uib-dropdown>
@@ -50,36 +48,57 @@
                     </a>
                     <ul class="dropdown-menu" uib-dropdown-menu role="menu">
                         <li role="menuitem">
-                            <a href="#/processtemplate">Process Template</a>
+                            <a href="#/processtemplate">Process Templates</a>
                         </li>
                     </ul>
                 </li>
 
-                 <li class="dropdown" uib-dropdown>
+                <li class="dropdown" uib-dropdown>
                     <a class="dropdown-toggle" uib-dropdown-toggle data-toggle="dropdown">Operation Corner
                                 <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu" uib-dropdown-menu role="menu">
                         <li role="menuitem">
-                            <a>Project Information</a>
+                            <a href="#/operationalcorner/adminprojects">Admin Projects</a>
                         </li>
                         <li role="menuitem">
-                            <a>Revenue/CP Forecasting</a>
+                            <a href="#/operationalcorner/manageprojects">Manage Projects Artifacts</a>
+                        </li>
+                        <li role="menuitem">
+                            <a href="#/operationalcorner/viewprojects">View Projects</a>
                         </li>
                     </ul>
                 </li>
 
                 <li class="dropdown" uib-dropdown>
-                    <a class="dropdown-toggle">People's Corner
+                    <a class="dropdown-toggle" uib-dropdown-toggle data-toggle="dropdown">People's Corner
+                     <span class="caret"></span>
                     </a>
+                    <ul class="dropdown-menu" uib-dropdown-menu role="menu">
+                        <li role="menuitem">
+                            <a href="#/peoplecorner/accolades">Client Accolades Admin</a>
+                        </li>
+                        <li role="menuitem">
+                            <a href="#/peoplecorner/toyotavideos">Toyota's Video</a>
+                        </li>
+                        <li role="menuitem">
+                            <a href="#/peoplecorner/breaksession">404 Break Session</a>
+                        </li>
+                    </ul>
                 </li>
                 <li class="dropdown" uib-dropdown>
-                    <a class="dropdown-toggle">Tech Corner
+                    <a class="dropdown-toggle" uib-dropdown-toggle data-toggle="dropdown">Tech Corner
+                     <span class="caret"></span>                    
                     </a>
+                    <ul class="dropdown-menu" uib-dropdown-menu role="menu">
+                        <li role="menuitem">
+                            <a href="/template/Web App - NFR Guidelines v0.1.xlsx">NFRs Template</a>
+                        </li>
+                        </ul>
                 </li>
             </ul>
 
-
+        <div style="float:right;padding-top:15px;padding-bottom:15px;">{{currentUser.UserName}}</div>
         </nav>
     </div>
 </div>

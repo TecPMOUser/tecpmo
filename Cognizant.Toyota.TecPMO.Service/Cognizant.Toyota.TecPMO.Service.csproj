@@ -41,10 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Implementation\AuthorizationService.cs" />
     <Compile Include="Implementation\ClientAccoladesService.cs" />
     <Compile Include="Implementation\ProcessService.cs" />
     <Compile Include="Implementation\ProjectDetailsService.cs" />
     <Compile Include="Implementation\ProjectService.cs" />
+    <Compile Include="Interface\IAuthorizationService.cs" />
     <Compile Include="Interface\IClientAccoladesService.cs" />
     <Compile Include="Interface\IProcessService.cs" />
     <Compile Include="Interface\IProjectDetailsService.cs" />

@@ -25,11 +25,19 @@ namespace Cognizant.Toyota.TecPMO.Service.Implementation
         {
             return repository.GetAllProjectDetails();
         }
+        public IList<DocumentDetails> GetDocumentsForProject(string ProjectId)
+        {
+            return repository.GetDocumentsForProject(ProjectId);
+        }
+        public int SaveProjectDocumentDetails(DocumentDetails projectdocuemntdetails)
+        {
+            return repository.SaveProjectDocumentDetails(projectdocuemntdetails);
+        }
         public int UpdateProjectDetails(ProjectDetails projectDetails)
         {
             return repository.UpdateProjectDetails(projectDetails);
         }
-        public int SaveProjectDetails(ProjectDetails projectDetails)
+        public int SaveProjectDetails(List<ProjectDetails> projectDetails)
         {
             return repository.SaveProjectDetails(projectDetails);
         }

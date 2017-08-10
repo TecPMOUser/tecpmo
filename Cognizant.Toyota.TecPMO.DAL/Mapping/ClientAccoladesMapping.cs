@@ -11,6 +11,9 @@ namespace Cognizant.Toyota.TecPMO.DAL.Mapping
             this.HasKey(t => t.ID);
 
             // Properties
+            this.Property(t => t.ProjectID)
+                .HasMaxLength(50);
+
            this.Property(t => t.ProjectName)
                 .HasMaxLength(500);
 
@@ -44,7 +47,8 @@ namespace Cognizant.Toyota.TecPMO.DAL.Mapping
 
             // Table & Column Mappings
             this.ToTable("ClientAccolades");
-            this.Property(t => t.ID).HasColumnName("ID");            
+            this.Property(t => t.ID).HasColumnName("ID");
+            this.Property(t => t.ProjectID).HasColumnName("ProjectID");
             this.Property(t => t.ProjectName).HasColumnName("ProjectName");
             this.Property(t => t.Milestone).HasColumnName("Milestone");
             this.Property(t => t.Date).HasColumnName("Date");

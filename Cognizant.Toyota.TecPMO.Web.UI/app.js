@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('app', ['ngRoute', 'ngCookies', 'ui.calendar', 'ui.bootstrap', 'ui.bootstrap.modal'])
+        .module('app', ['ngRoute', 'ngCookies', 'ui.calendar', 'ui.bootstrap', 'ui.bootstrap.modal', 'angularMoment', 'bootstrapLightbox', 'angularjs-dropdown-multiselect'])
         .config(config);
 
     //.run(run);
@@ -59,9 +59,9 @@
                 templateUrl: 'view/AVMProjectDelivery/AVMProjectDelivery.html',
                 controllerAs: 'vm'
             })
-             .when('/accolades', {
+             .when('/peoplecorner/accolades', {
                  controller: 'HomeController',
-                 templateUrl: 'view/accolades/accolades.html',
+                 templateUrl: 'view/peoplecorner/accolades.html',
                  controllerAs: 'vm'
              })
             .when('/processtemplate', {
@@ -72,6 +72,31 @@
              .when('/projectdetails', {
                  controller: 'projectdetailscontroller',
                  templateUrl: 'view/project/projectdetails.html',
+                 controllerAs: 'vm'
+             })
+             .when('/operationalcorner/viewprojects', {
+                 controller: 'projectdetailscontroller',
+                 templateUrl: 'view/operationalcorner/viewprojects.html',
+                 controllerAs: 'vm'
+             })
+            .when('/operationalcorner/adminprojects', {
+                controller: 'AdminProjectsController',
+                templateUrl: 'view/operationalcorner/adminprojects.html',
+                controllerAs: 'vm'
+            })
+            .when('/operationalcorner/manageprojects', {
+                controller: 'AdminProjectsController',
+                templateUrl: 'view/operationalcorner/manageprojects.html',
+                controllerAs: 'vm'
+            }) 
+            .when('/peoplecorner/toyotavideos', {
+                controller: 'ProcessController',
+                templateUrl: 'view/peoplecorner/toyotavideos.html',
+                controllerAs: 'vm'
+            })
+             .when('/peoplecorner/breaksession', {
+                 controller: 'ProcessController',
+                 templateUrl: 'view/peoplecorner/breaksession.html',
                  controllerAs: 'vm'
              })
             .otherwise({ redirectTo: '/' });

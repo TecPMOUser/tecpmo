@@ -2,16 +2,18 @@
 using Cognizant.Toyota.TecPMO.Core.Model;
 using Cognizant.Toyota.TecPMO.Service.Implementation;
 using Cognizant.Toyota.TecPMO.Service.Interface;
+using Cognizant.Toyota.TecPMO.Web.API.Authorization;
 using Cognizant.Toyota.TecPMO.Web.API.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
 namespace Cognizant.Toyota.TecPMO.Web.API.Controllers
-{
+{    
     public class ProjectController : ApiController
     {
 
@@ -39,11 +41,11 @@ namespace Cognizant.Toyota.TecPMO.Web.API.Controllers
                 CreatedBy = "",
                 CreatedDt = DateTime.Now,
                 ProjectManager = x.ProjectManager,
-                DesignEndDate = ConvertToDateTime(x.DesignEndDate),
-                SITEndDate = ConvertToDateTime(x.SITEndDate),
-                UATEndDate = ConvertToDateTime(x.UATEndDate),
-                CUTEndDate = ConvertToDateTime(x.CUTEndDate),
-                GoLiveDate = ConvertToDateTime(x.GoLiveDate),
+                DesignEndDate = DateFormat(x.DesignEndDate),
+                SITEndDate = DateFormat(x.SITEndDate),
+                UATEndDate = DateFormat(x.UATEndDate),
+                CUTEndDate = DateFormat(x.CUTEndDate),
+                GoLiveDate = DateFormat(x.GoLiveDate),
                 ModifiedBy = "",
                 ModifiedDt = DateTime.Now,
                 PortifolioOwner = x.PortifolioOwner,
@@ -53,7 +55,7 @@ namespace Cognizant.Toyota.TecPMO.Web.API.Controllers
                 Comments = x.Comments,
                 ProjectName = x.ProjectName,
                 ProjectID = x.ProjectID,
-                PathToGreenDate = ConvertToDateTime(x.PathToGreenDate),
+                PathToGreenDate = DateFormat(x.PathToGreenDate),
                 Type = x.Type
             }).ToList();
             var serviceCode = service.SaveProject(projectModel);
@@ -124,9 +126,9 @@ namespace Cognizant.Toyota.TecPMO.Web.API.Controllers
         }
 
         [HttpGet]
-        public HttpResponseMessage GetProjectDetailsById(string projectID)
+        public HttpResponseMessage GetProjectDetailsById(long id)
         {
-            var project = service.GetProjectDetailsById(projectID);
+            var project = service.GetProjectDetailsById(id);
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, project);
             return response;
         }
@@ -181,6 +183,21 @@ namespace Cognizant.Toyota.TecPMO.Web.API.Controllers
             return DateTime.MinValue != dateTimeValue ? dateTimeValue : (DateTime?)null;
         }
 
+        private DateTime? DateFormat(string dateValue)
+        {
+            if (dateValue != null)
+            {
+                string[] formats = new[] { "MM/dd/yyyy", "dd-MMM-yyyy", 
+                            "yyyy-MM-dd", "dd-MM-yyyy", "dd MMM yyyy", "M/dd/yy","M/dd/yyyy","MM/d/yy","MM/d/yyyy","M/d/yy","M/d/yyyy"};
+                DateTime d = DateTime.ParseExact(dateValue, formats, CultureInfo.InvariantCulture, DateTimeStyles.None);
+                return Convert.ToDateTime(d.ToString("yyyy-MM-dd"));
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         private string ConvertStatus(string status)
         {
             string statusValue = "";
@@ -225,23 +242,23 @@ namespace Cognizant.Toyota.TecPMO.Web.API.Controllers
 
                 if (item.DesignEndDate != null)
                 {
-                    eventmodel.Add(new CalendarEventModel(item.ProjectName +" - "+  Constant.Design, Convert.ToDateTime(item.DesignEndDate), item.Status,item.ProjectID));
+                    eventmodel.Add(new CalendarEventModel(item.ProjectName + " - " + Constant.Design, Convert.ToDateTime(item.DesignEndDate), item.Status, item.ProjectID, Constant.Design,item.ID));
                 }
                 if (item.CUTEndDate != null)
                 {
-                    eventmodel.Add(new CalendarEventModel(item.ProjectName + " - " + Constant.Cut, Convert.ToDateTime(item.CUTEndDate), item.Status, item.ProjectID));
+                    eventmodel.Add(new CalendarEventModel(item.ProjectName + " - " + Constant.Cut, Convert.ToDateTime(item.CUTEndDate), item.Status, item.ProjectID, Constant.Cut, item.ID));
                 }
                 if (item.SITEndDate != null)
                 {
-                    eventmodel.Add(new CalendarEventModel(item.ProjectName + " - " + Constant.Sit, Convert.ToDateTime(item.SITEndDate), item.Status, item.ProjectID));
+                    eventmodel.Add(new CalendarEventModel(item.ProjectName + " - " + Constant.Sit, Convert.ToDateTime(item.SITEndDate), item.Status, item.ProjectID, Constant.Sit, item.ID));
                 }
                 if (item.UATEndDate != null)
                 {
-                    eventmodel.Add(new CalendarEventModel(item.ProjectName + " - " + Constant.Uat, Convert.ToDateTime(item.UATEndDate), item.Status, item.ProjectID));
+                    eventmodel.Add(new CalendarEventModel(item.ProjectName + " - " + Constant.Uat, Convert.ToDateTime(item.UATEndDate), item.Status, item.ProjectID, Constant.Uat, item.ID));
                 }
                 if (item.GoLiveDate != null)
                 {
-                    eventmodel.Add(new CalendarEventModel(item.ProjectName + " - " + Constant.GoLive, Convert.ToDateTime(item.GoLiveDate), item.Status, item.ProjectID));
+                    eventmodel.Add(new CalendarEventModel(item.ProjectName + " - " + Constant.GoLive, Convert.ToDateTime(item.GoLiveDate), item.Status, item.ProjectID, Constant.GoLive, item.ID));
                 }
 
             }

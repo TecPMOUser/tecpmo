@@ -20,37 +20,36 @@ namespace Cognizant.Toyota.TecPMO.DAL.Mapping
                 .IsRequired()
                 .HasMaxLength(50);
 
-            this.Property(t => t.ESAProjectName)
+            this.Property(t => t.ProjectName)
                 .HasMaxLength(100);
 
 
-            this.Property(t => t.ProjectShortName)
-                .HasMaxLength(50);
+            this.Property(t => t.ManagerID)
+                .HasMaxLength(10);
 
-            this.Property(t => t.ProjectDescription)
+            this.Property(t => t.ManagerName)
                 .HasMaxLength(250);
 
 
-            this.Property(t => t.ProjectManagerID)
-                .HasMaxLength(50);
+            this.Property(t => t.DMID)
+                .HasMaxLength(10);
 
-            this.Property(t => t.ProjectManagerName)
+            this.Property(t => t.DMName)
                .HasMaxLength(50);
 
-            this.Property(t => t.ProjectDMName)
-             .HasMaxLength(50);
 
 
             // Table & Column Mappings
             this.ToTable("ProjectDetails");
             this.Property(t => t.ID).HasColumnName("ID");
             this.Property(t => t.ProjectID).HasColumnName("ProjectID");
-            this.Property(t => t.ESAProjectName).HasColumnName("ESAProjectName");
-            this.Property(t => t.ProjectShortName).HasColumnName("ProjectShortName");
-            this.Property(t => t.ProjectDescription).HasColumnName("ProjectDescription");
-            this.Property(t => t.ProjectManagerID).HasColumnName("ProjectManagerID");
-            this.Property(t => t.ProjectManagerName).HasColumnName("ProjectManagerName");
-            this.Property(t => t.ProjectDMName).HasColumnName("ProjectDMName");
+            this.Property(t => t.ProjectName).HasColumnName("ProjectName");
+            this.Property(t => t.ManagerName).HasColumnName("ManagerName");
+            this.Property(t => t.ManagerID).HasColumnName("ManagerID");
+            this.Property(t => t.DMID).HasColumnName("DMID");
+            this.Property(t => t.DMName).HasColumnName("DMName");
+            this.Property(t => t.StartDate).HasColumnName("StartDate");
+            this.Property(t => t.EndDate).HasColumnName("EndDate");
             this.Property(t => t.IsActive).HasColumnName("IsActive");    
             this.Property(t => t.CreatedBy).HasColumnName("CreatedBy");
             this.Property(t => t.CreatedDt).HasColumnName("CreatedDt");

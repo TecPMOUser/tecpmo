@@ -5,15 +5,17 @@
         .module('app')
         .controller('CalendarModalController', CalendarModalController);
 
-    CalendarModalController.$inject = ['ProjectService', '$uibModalInstance', 'projectId'];
+    CalendarModalController.$inject = ['ProjectService', '$uibModalInstance', 'ID','Title','Stage'];
 
-    function CalendarModalController(ProjectService, $uibModalInstance, projectId) {
+    function CalendarModalController(ProjectService, $uibModalInstance, ID,Title,Stage) {
         var vm = this;
-        LoadProjectDetails(projectId);
+        vm.Title = Title;
+        vm.Stage = Stage;
+        LoadProjectDetails(ID);
 
-        function LoadProjectDetails(projectId) {
+        function LoadProjectDetails(ID) {
             
-            ProjectService.GetProjectDetailsById(projectId)
+            ProjectService.GetProjectDetailsById(ID)
                            .then(function (data) {
                                vm.projectInfo = data;
                            });
